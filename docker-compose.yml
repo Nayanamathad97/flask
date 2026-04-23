@@ -1,0 +1,15 @@
+name: ip_apps
+services
+ flask_app:
+    build:
+       context:./flask_app
+    image: flask:latest
+    ports:
+       "8081:8000"
+    networks: 
+       -ip_app_bridge
+    volumes: 
+       -flask_app_data:/app 
+    environment:
+        TEST: example
+        TEST1:exampledb
